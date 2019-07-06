@@ -5,4 +5,10 @@ resource "aws_instance" "example" {
   tags = {
     Name = "example"
   }
+
+  user_data = <<EOF
+    #!/bin/bash
+    amazon-linux-extras install nginx1.12 -y
+    systemctl start nginx
+EOF
 }
